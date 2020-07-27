@@ -52,6 +52,7 @@ group :development do
   gem 'binding_of_caller'
   gem 'bcrypt'
   gem 'jquery-rails'
+  # gem 'jquery'
 end
 
 group :test do

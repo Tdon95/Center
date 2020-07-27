@@ -5,7 +5,9 @@ import entities from "./entities_reducer";
 import entitiesReducer from "./entities_reducer";
 
 const rootReducer = combineReducers({
-  entities: entitiesReducer,
+  entities: () => {
+    return " ";
+  },
 });
 
 export default rootReducer;

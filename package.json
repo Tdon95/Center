@@ -1,5 +1,5 @@
 {
-  "name": "Center",
+  "name": "center",
   "private": true,
   "dependencies": {
     "@babel/core": "^7.10.5",
@@ -29,8 +29,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "webpack",
-    "webpack": "webpack --watch --mode=development"
+    "webpack": "webpack --watch --mode=development",
+    "postinstall": "webpack"
   },
   "repository": {
     "type": "git",

@@ -1,22 +1,22 @@
 export const fetchUser = (userId) =>
   $.ajax({
-    method: "GET",
     url: `/api/users/${userId}`,
+    method: "GET",
   });
 export const signup = (user) =>
   $.ajax({
-    method: "POST",
     url: `/api/users`,
+    method: "POST",
     data: { user },
   });
 export const updateUser = (user) =>
   $.ajax({
-    method: "PATCH",
     url: `/api/users/${user.id}`,
+    method: "PATCH",
     data: { user },
   });
 export const deleteUser = (userId) =>
   $.ajax({
-    method: "DELETE",
     url: `/api/users/${userId}`,
+    method: "DELETE",
   });

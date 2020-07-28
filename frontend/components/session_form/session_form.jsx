@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -18,7 +19,7 @@ class SessionForm extends React.Component {
   }
   handleSubmit(e) {
     e.preventDefault();
-    this.props.action(this.state);
+    this.props.processForm(this.state);
   }
   //   handleSubmit(e) {
   //     e.preventDefault();
@@ -26,15 +27,30 @@ class SessionForm extends React.Component {
   //     this.props.processForm(user);
   //   }
 
+  // renderErrors() {
+  //   return (
+  // <ul>
+  //   {this.props.errors.map((error, idx) => (
+  //     <li key={`error--${idx}`}>{error}</li>
+  //   ))}
+  // </ul>
+  //   );
+  // }
+
   renderErrors() {
-    return (
-      <ul>
-        {this.props.errors.map((error, idx) => (
-          <li key={`error--${idx}`}>{error}</li>
-        ))}
-      </ul>
-    );
+    if (this.props.errors) {
+      return (
+        <ul>
+          {this.props.errors.map((error, idx) => (
+            <li key={`error--${idx}`}>{error}</li>
+          ))}
+        </ul>
+      );
+    } else {
+      return "";
+    }
   }
+
   render() {
     const formType = this.props.formType === "login" ? "login" : "signup";
     return (
@@ -52,7 +68,7 @@ class SessionForm extends React.Component {
               <input
                 type="text"
                 value={this.state.email}
-                onChange={this.update("email")}
+                onChange={this.handleInput("email")}
               />
             </label>
             <br />
@@ -61,7 +77,7 @@ class SessionForm extends React.Component {
               <input
                 type="password"
                 value={this.state.password}
-                onChange={this.update("password")}
+                onChange={this.handleInput("password")}
               />
             </label>
             <br />

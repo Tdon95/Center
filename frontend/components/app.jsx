@@ -7,10 +7,9 @@ const App = () => (
   <div>
     {/* <h1>Testing, testing 1,2,3</h1> */}
     <h1>Center</h1>
-    {/* <Switch> */}
+
     {/* <AuthRoute exact path="/login" component={LogInFormContainer} />
-      <AuthRoute exact path="/signup" component={SignUpFormContainer} /> */}
-    {/* </Switch> */}
+    <AuthRoute exact path="/signup" component={SignUpFormContainer} /> */}
   </div>
 );
 

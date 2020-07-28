@@ -7,12 +7,6 @@ class SessionForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  //   update(field) {
-  //     return (e) =>
-  //       this.setState({
-  //         [field]: e.currentTarget.value,
-  //       });
-  //   }
   handleInput(field) {
     return (e) => this.setState({ [field]: e.currentTarget.value });
   }
@@ -20,21 +14,6 @@ class SessionForm extends React.Component {
     e.preventDefault();
     this.props.processForm(this.state);
   }
-  //   handleSubmit(e) {
-  //     e.preventDefault();
-  //     const user = Object.assign({}, this.state);
-  //     this.props.processForm(user);
-  //   }
-
-  // renderErrors() {
-  //   return (
-  // <ul>
-  //   {this.props.errors.map((error, idx) => (
-  //     <li key={`error--${idx}`}>{error}</li>
-  //   ))}
-  // </ul>
-  //   );
-  // }
 
   renderErrors() {
     if (this.props.errors) {

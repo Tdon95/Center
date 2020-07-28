@@ -15,22 +15,22 @@ export const logoutCurrentUser = () => ({
 
 export const receiveErrors = (errors) => ({
   type: RECEIVE_SESSION_ERRORS,
-  errors,
+  errors: errors,
 });
 
 export const login = (user) => (dispatch) =>
-  SessionApiUtil.login(user).then(
+  SessionAPIUtil.login(user).then(
     (user) => dispatch(receiveCurrentUser(user)),
     (error) => dispatch(receiveErrors(error.responseJSON))
   );
 
 export const logout = () => (dispatch) =>
-  SessionApiUtil.logout().then(() => dispatch(logoutCurrentUser()));
+  SessionAPIUtil.logout().then(() => dispatch(logoutCurrentUser()));
 
 export const signup = (user) => (dispatch) => {
   return SessionAPIUtil.signup(user).then(
     (user) => dispatch(receiveCurrentUser(user)),
-    (error) => dispatch(receiveErrors(error.responseJSON))
+    (errors) => dispatch(receiveErrors(errors.responseJSON))
   );
 };
 

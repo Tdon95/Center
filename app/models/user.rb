@@ -8,9 +8,11 @@
 #  session_token   :string           not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  name            :string
 #
 class User < ApplicationRecord
-  validates :email, :password_digest, :session_token, presence: true, uniqueness: true
+  validates :email, :password_digest, :session_token, presence: true
+  validates :email, :session_token, uniqueness: true
   validates :password, length: { minimum: 6 }, allow_nil: true
 
     attr_reader :password
@@ -43,7 +45,7 @@ class User < ApplicationRecord
     end
 
     def self.generate_session_token
-        SecureRandom.base64(16)
+        SecureRandom::urlsafe_base64
     end
     # this is equivalent to new_session_token seen below
 
@@ -51,7 +53,7 @@ class User < ApplicationRecord
     def ensure_session_token
         self.session_token ||= self.class.generate_session_token
     end
-    def new_session_token
-        SecureRandom.urlsafe_base64
-    end
+    # def new_session_token
+    #     SecureRandom.urlsafe_base64
+    # end
 end

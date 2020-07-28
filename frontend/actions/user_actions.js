@@ -5,7 +5,7 @@ export const REMOVE_USER = "REMOVE_USER";
 
 const receiveCurrentUser = (user) => ({
   type: RECEIVE_CURRENT_USER,
-  user: user,
+  user,
 });
 
 const removeUser = (userId) => ({

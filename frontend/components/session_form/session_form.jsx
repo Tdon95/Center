@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -42,7 +41,7 @@ class SessionForm extends React.Component {
       return (
         <ul>
           {this.props.errors.map((error, idx) => (
-            <li key={`error--${idx}`}>{error}</li>
+            <li key={`error-${idx}`}>{error}</li>
           ))}
         </ul>
       );
@@ -59,7 +58,7 @@ class SessionForm extends React.Component {
         <form onSubmit={this.handleSubmit}>
           Welcome to Center!
           <br />
-          Please {this.props.formType} or {this.props.navLink}
+          Please {this.props.formType}
           {this.renderErrors()}
           <div>
             <br />

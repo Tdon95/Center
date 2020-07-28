@@ -36,8 +36,10 @@ class SessionForm extends React.Component {
     );
   }
   render() {
+    const formType = this.props.formType === "login" ? "login" : "signup";
     return (
       <div>
+        <h1>{formType}</h1>
         <form onSubmit={this.handleSubmit}>
           Welcome to Center!
           <br />
@@ -63,7 +65,8 @@ class SessionForm extends React.Component {
               />
             </label>
             <br />
-            <input type="submit" value={this.props.formType} />
+            {/* <input type="submit" value={this.props.formType} /> */}
+            <button type="submit">{formType}</button>
           </div>
         </form>
       </div>

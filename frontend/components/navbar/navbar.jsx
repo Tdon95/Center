@@ -86,7 +86,6 @@ class Navbar extends React.Component {
 
   render() {
     let loggedIn;
-    // debugger;
     if (this.props.currentUser) {
       loggedIn = (
         <button className="logout btn" onClick={this.props.logout}>
@@ -96,10 +95,10 @@ class Navbar extends React.Component {
     } else {
       loggedIn = (
         <div>
-          <Link className="login btn" to="/login">
+          <Link className="login-btn" to="/login">
             Sign in
           </Link>
-          <Link className="signup btn" to="/signup">
+          <Link className="signup-btn" to="/signup">
             Sign up
           </Link>
         </div>

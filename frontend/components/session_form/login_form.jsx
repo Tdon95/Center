@@ -6,12 +6,17 @@ class Login extends React.Component {
     super(props);
     this.state = { email: "", password: "" };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleClose = this.handleClose.bind(this);
   }
 
   handleInput(field) {
     return (e) => this.setState({ [field]: e.currentTarget.value });
   }
 
+  handleClose(e) {
+    e.preventDefault();
+    this.props.closeModal();
+  }
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
@@ -25,8 +30,13 @@ class Login extends React.Component {
     const { email, password } = this.state;
     return (
       <div>
-        <form>
-          <h2>Sign in</h2>
+        <h3>Sign in with email</h3>
+        {/* <form> */}
+        <form onSubmit={this.handleSubmit} className="modal-form">
+          {/* <button
+            className="modal-close-button"
+            onClick={this.handleClose}
+          ></button> */}
           <label>
             Email
             <input
@@ -43,6 +53,7 @@ class Login extends React.Component {
             />
           </label>
           <button onClick={this.handleSubmit}>Sign in</button>
+          {/* <button type="submit">Continue</button> */}
         </form>
       </div>
     );
@@ -59,9 +70,14 @@ class Login extends React.Component {
 
   render() {
     return (
-      <div>
-        {this.loginForm()}
-        {this.errors()}
+      <div className="modal-background">
+        <div className="unview" onClick={this.handleClose} />
+        <div className="modal-child">
+          <div>
+            {this.loginForm()}
+            {this.errors()}
+          </div>
+        </div>
       </div>
     );
   }

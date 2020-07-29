@@ -27,18 +27,25 @@
 // //   login: (user) => dispatch(login(user)),
 // // });
 // -------------------------------------------------------------
-
+import React from "react";
 import { connect } from "react-redux";
 import Login from "./login_form";
 import { login } from "../../actions/session_actions";
+import { openModal, closeModal } from "../../actions/modal_actions";
 
 const msp = (state) => ({
   errors: state.errors.session,
+  formType: "login",
 });
 // const mdp = (dispatch) => ({
 //   login: (user) => dispatch(login(user)),
 // }); previous code. trying to do action: ... instead now
 const mdp = (dispatch) => ({
   action: (user) => dispatch(login(user)),
+  openModal: (modal) => dispatch(openModal(modal)),
+  closeModal: () => dispatch(closeModal()),
+  otherForm: (
+    <button onClick={() => dispatch(openModal("signup"))}>Signup</button>
+  ),
 });
 export default connect(msp, mdp)(Login);

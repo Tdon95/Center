@@ -6,9 +6,14 @@ class Signup extends React.Component {
     super(props);
     this.state = { email: "", password: "" };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleClose = this.handleClose.bind(this);
   }
   handleInput(field) {
     return (e) => this.setState({ [field]: e.currentTarget.value });
+  }
+  handleClose(e) {
+    e.preventDefault();
+    this.props.closeModal();
   }
   handleSubmit(e) {
     e.preventDefault();
@@ -22,8 +27,9 @@ class Signup extends React.Component {
     const { email, password } = this.state;
     return (
       <div>
-        <form>
-          <h2>Sign Up</h2>
+        {/* <form className="modal-form"> */}
+        <form onSubmit={this.handleSubmit} className="modal-form">
+          <h3>Sign Up</h3>
           <label>
             Email
             <input
@@ -55,9 +61,14 @@ class Signup extends React.Component {
   }
   render() {
     return (
-      <div>
-        {this.signupForm()}
-        {this.errors()}
+      <div className="modal-background">
+        <div className="unview" onClick={this.handleClose} />
+        <div className="modal-child">
+          <div>
+            {this.signupForm()}
+            {this.errors()}
+          </div>
+        </div>
       </div>
     );
   }

@@ -1,17 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-class Login extends React.Component {
+class Signup extends React.Component {
   constructor(props) {
     super(props);
     this.state = { email: "", password: "" };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-
   handleInput(field) {
     return (e) => this.setState({ [field]: e.currentTarget.value });
   }
-
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
@@ -20,13 +18,12 @@ class Login extends React.Component {
       this.props.history.push("/");
     });
   }
-
-  loginForm() {
+  signupForm() {
     const { email, password } = this.state;
     return (
       <div>
         <form>
-          <h2>Sign in</h2>
+          <h2>Sign Up</h2>
           <label>
             Email
             <input
@@ -42,7 +39,7 @@ class Login extends React.Component {
               value={password}
             />
           </label>
-          <button onClick={this.handleSubmit}>Sign in</button>
+          <button onClick={this.handleSubmit}>Sign up</button>
         </form>
       </div>
     );
@@ -56,15 +53,13 @@ class Login extends React.Component {
       </ul>
     );
   }
-
   render() {
     return (
       <div>
-        {this.loginForm()}
+        {this.signupForm()}
         {this.errors()}
       </div>
     );
   }
 }
-
-export default Login;
+export default Signup;

@@ -8,11 +8,14 @@ import Navbar from "./navbar/narbar_container";
 
 const App = () => (
   <div>
-    <h1>Center</h1>
+    <header>
+      <h1>Center</h1>
+      {/* <Navbar /> */}
+    </header>
     <Switch>
-      <AuthRoute exact path="/login" component={LogInFormContainer} />
-      <AuthRoute exact path="/signup" component={SignUpFormContainer} />
       <Route path="/">
+        <AuthRoute exact path="/login" component={LogInFormContainer} />
+        <AuthRoute exact path="/signup" component={SignUpFormContainer} />
         <Navbar />
       </Route>
     </Switch>

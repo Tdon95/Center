@@ -10,7 +10,7 @@ class Navbar extends React.Component {
     if (this.props.currentUser.id) {
       isLoggedIn = <button onClick={this.props.logout}>Sign out</button>;
     } else {
-      <Link to={"/login"}>Sign in</Link>;
+      isLoggedIn = <Link to={"/login"}>Sign in</Link>;
     }
     return (
       <div>
@@ -20,4 +20,5 @@ class Navbar extends React.Component {
     );
   }
 }
+
 export default Navbar;

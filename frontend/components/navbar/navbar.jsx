@@ -94,14 +94,45 @@ class Navbar extends React.Component {
       );
     } else {
       loggedIn = (
-        <div>
-          <Link className="login-btn" to="/login">
-            Sign in
-          </Link>
-          <Link className="signup-btn" to="/signup">
-            Sign up
-          </Link>
+        <div className="out-border">
+          <nav className="navbar">
+            <div className="center">Center</div>
+            <div className="middle-box">
+              <div>Subscribe</div>
+              <div>Write</div>
+              <div>
+                {" "}
+                <Link className="login-btn" to="/login">
+                  Sign in
+                </Link>
+              </div>
+            </div>
+
+            <div>
+              <Link className="signup-btn" to="/signup">
+                Get started
+              </Link>
+            </div>
+          </nav>
         </div>
+
+        // <div className="out-most-border">
+        //   <div className="outer-border">
+        //     <div className="subouter-border">
+        //       <div className="subsubouter-border">
+        //         <div className="login-border">
+        //           <span className="center">Center</span>
+        //           <Link className="login-btn" to="/login">
+        //             Sign in
+        //           </Link>
+        //           <Link className="signup-btn" to="/signup">
+        //             Get started
+        //           </Link>
+        //         </div>
+        //       </div>
+        //     </div>
+        //   </div>
+        // </div>
       );
     }
     return (

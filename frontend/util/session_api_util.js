@@ -17,3 +17,10 @@ export const signup = (user) =>
     method: "POST",
     data: { user },
   });
+
+export const demoUserLogin = () =>
+  $.ajax({
+    url: `/api/session`,
+    method: "POST",
+    data: { user: { email: "demotest@demo.com", password: "123456" } },
+  });

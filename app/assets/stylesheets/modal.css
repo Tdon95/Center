@@ -8,3 +8,47 @@
   z-index: 10;
   background-color: rgba(255, 255, 255, 0.97);
 } */
+
+.modal-background {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 25;
+  background-color: rgba(255, 255, 255, 0.97);
+  height: 60%;
+  width: 70%;
+}
+
+.modal-child {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+}
+
+.unview {
+  z-index: 20;
+  cursor: pointer;
+  font-size: 30px;
+  display: flex;
+}
+.modal-form {
+  text-align: center;
+  position: relative;
+}
+
+.modal-close {
+  display: flex;
+  align-items: right;
+  justify-content: right;
+  right: 0px;
+  position: absolute;
+  border: none;
+  font-size: 20px;
+  color: grey;
+  background: transparent;
+}

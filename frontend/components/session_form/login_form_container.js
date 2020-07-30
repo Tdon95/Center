@@ -30,7 +30,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import Login from "./login_form";
-import { login } from "../../actions/session_actions";
+import { login, demoUser } from "../../actions/session_actions";
 import { openModal, closeModal } from "../../actions/modal_actions";
 
 const msp = (state) => ({
@@ -44,8 +44,10 @@ const mdp = (dispatch) => ({
   action: (user) => dispatch(login(user)),
   openModal: (modal) => dispatch(openModal(modal)),
   closeModal: () => dispatch(closeModal()),
-  otherForm: (
-    <button onClick={() => dispatch(openModal("signup"))}>Signup</button>
-  ),
+  // otherForm: (
+  //   <button onClick={() => dispatch(openModal("signup"))}>Signup</button>
+  // ),
+  // demoUser: () => dispatch(demoUser()),
+  demoLogin: (user) => dispatch(login(user)),
 });
 export default connect(msp, mdp)(Login);

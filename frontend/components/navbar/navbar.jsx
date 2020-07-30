@@ -78,7 +78,7 @@
 // ----------------------------------------------------------------
 import React from "react";
 import { Link } from "react-router-dom";
-
+import Modal from "../modal/modal";
 class Navbar extends React.Component {
   constructor(props) {
     super(props);
@@ -102,9 +102,12 @@ class Navbar extends React.Component {
               <div>Write</div>
               <div>
                 {" "}
-                <Link className="login-btn" to="/login">
-                  Sign in
-                </Link>
+                <div>
+                  <Modal />
+                  <Link className="login-btn" to="/login">
+                    Sign in
+                  </Link>
+                </div>
               </div>
             </div>
 
@@ -115,24 +118,6 @@ class Navbar extends React.Component {
             </div>
           </nav>
         </div>
-
-        // <div className="out-most-border">
-        //   <div className="outer-border">
-        //     <div className="subouter-border">
-        //       <div className="subsubouter-border">
-        //         <div className="login-border">
-        //           <span className="center">Center</span>
-        //           <Link className="login-btn" to="/login">
-        //             Sign in
-        //           </Link>
-        //           <Link className="signup-btn" to="/signup">
-        //             Get started
-        //           </Link>
-        //         </div>
-        //       </div>
-        //     </div>
-        //   </div>
-        // </div>
       );
     }
     return (
@@ -145,3 +130,21 @@ class Navbar extends React.Component {
 }
 
 export default Navbar;
+
+// <div className="out-most-border">
+//   <div className="outer-border">
+//     <div className="subouter-border">
+//       <div className="subsubouter-border">
+//         <div className="login-border">
+//           <span className="center">Center</span>
+//           <Link className="login-btn" to="/login">
+//             Sign in
+//           </Link>
+//           <Link className="signup-btn" to="/signup">
+//             Get started
+//           </Link>
+//         </div>
+//       </div>
+//     </div>
+//   </div>
+// </div>

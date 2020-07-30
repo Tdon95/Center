@@ -18,6 +18,7 @@ export const receiveErrors = (errors) => ({
   errors,
 });
 
+
 export const login = (user) => (dispatch) =>
   SessionAPIUtil.login(user).then(
     (user) => dispatch(receiveCurrentUser(user)),
@@ -33,3 +34,9 @@ export const signup = (user) => (dispatch) => {
     (errors) => dispatch(receiveErrors(errors.responseJSON))
   );
 };
+
+export const demoUser = () => dispatch => (
+  APIUTIL.demoUserLogin()
+    .then(user => dispatch(receiveCurrentUser(user)))
+    // .then(modal => dispatch(closeModal(modal)))
+);

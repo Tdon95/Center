@@ -22,18 +22,10 @@ class Login extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    // this.props.login(user);
     this.props.action(user).then(() => {
       this.props.history.push("/");
     });
   }
-
-  // handleSubmit(e) {
-  //   e.preventDefault();
-  //   const user = Object.assign({}, this.state);
-  //   this.props.action(user);
-  // }
-
   handleDemoLogin(e) {
     e.preventDefault();
     return this.props.demoLogin({
@@ -41,15 +33,7 @@ class Login extends React.Component {
       password: "123456",
     });
   }
-  // buttonStatus() {
-  //   if (this.props.handleClose) {
-  //     return (
-  //       <button className="modal-close" onClick={this.handleCloseModal}>
-  //         x
-  //       </button>
-  //     );
-  //   }
-  // }
+
   loginForm() {
     const { email, password } = this.state;
     return (
@@ -93,7 +77,7 @@ class Login extends React.Component {
     );
   }
 
-  modalForm() {
+  render() {
     const head = "Welcome back.";
     const head2 =
       "Sign in to get personalized story recommendations, follow authors and topics you love, and interact with stories.";
@@ -107,33 +91,67 @@ class Login extends React.Component {
         "No account? Create one"
       </button>
     );
-  }
 
-  render() {
     return (
       <div className="modal-background">
-        <div className="unview" onClick={this.handleClose}>
-          x
-        </div>
+        <div className="invisible" onClick={this.handleClose} />
         <div className="modal-child">
-          <div>
-            {this.loginForm()}
-            {this.errors()}
+          <div
+            style={{ backgroundImage: `url(${window.formImg})` }}
+            className="modal-session-form"
+          >
+            <form className="modal-form" onSubmit={this.handleSubmit}>
+              <button className="modal-close-button" onClick={this.handleClose}>
+                {String.fromCharCode(10005)}
+              </button>
+              <h1 className="modal-header">{head}</h1>
+              <h2 className="modal-subheader">{head2}</h2>
+              <label className="modal-label">
+                Username
+                <br />
+                <input
+                  className="modal-input"
+                  type="text"
+                  value={this.state.username}
+                  onChange={this.update("username")}
+                />
+              </label>
+              <br />
+              <br />
+              <label className="modal-label">
+                Password
+                <br />
+                <input
+                  className="modal-input"
+                  type="password"
+                  value={this.state.password}
+                  onChange={this.update("password")}
+                />
+              </label>
+              <div className="modal-errors">{this.renderErrors()}</div>
+              <br />
+              <br />
+              <div className="submit-buttons">
+                <button
+                  className="submit-button"
+                  type="submit"
+                  value={this.props.formType}
+                >
+                  {buttonName}
+                </button>
+                <br />
+                <br />
+                <button className="demo-user" onClick={() => this.demoLogin()}>
+                  Demo User
+                </button>
+              </div>
+              <br />
+              {otherForm}
+            </form>
           </div>
         </div>
       </div>
     );
-    // return (
-    //   <div className="modal-background">
-    //     <div className="unview" onClick={this.handleClose} />
-    //     <div className="modal-child">
-    //       <div>
-    //         {this.loginForm()}
-    //         {this.errors()}
-    //       </div>
-    //     </div>
-    //   </div>
-    // );
   }
 }
 
